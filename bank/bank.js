@@ -27,3 +27,26 @@ function showMenu() {
 }
 
 */
+let balance = 0;
+function deposit(amount){
+  if (amount > 0){
+    balance = balance + amount;
+  } else{
+    console.error('Cannot deposit negative amounts');
+  }
+  return balance;
+}
+
+console.log(deposit(50));
+console.log(deposit(9.57));
+
+function withdrawl(amount){
+  if (amount < balance){
+    balance = balance - amount;
+  } else{
+    console.error('Cannot withdrawl more than the amount of money in the bank')
+  }
+  return balance;
+}
+
+console.log(withdrawl(25));
