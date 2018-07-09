@@ -1,32 +1,4 @@
-/*
-Simulate a bank with the following functions
-
-Use a variable to keep track of the balance
-
-Use a variable to keep track of the account history
-
-function deposit(amount){
-  // Make sure that the amount is a positive number
-
-  // Record the deposit in the history
-}
-
-function withdrawl(amount) {
-  // Make sure that there is enough money in the account before taking it out
-
-  // Record the withdrawl in the history
-}
-
-function showHistory() {
-  // Show the history
-}
-
-
-function showMenu() {
-  // Show a menu of what the user can do
-}
-
-*/
+// this file is a bank does deposits, withdrawls, shows the history and saves the bank info.
 process.stdin.resume();
 process.stdin.setEncoding('utf8');
 const fs = require('fs');
@@ -34,6 +6,7 @@ const fs = require('fs');
 let balance = 0;
 let history = [];
 
+// load the data file
 function init() {
   try {
     const contents = JSON.parse(fs.readFileSync('bank.json', 'utf8'));
@@ -126,18 +99,10 @@ process.stdin.on('data', text =>{
       console.error(`unknown text ${text}`);
     }
   }
-if (command === 0) {
-  showMenu();
+  if (command === 0) {
+    showMenu();
   }
-
 });
+
 init();
 showMenu();
-/*
-showMenu();
-console.log(deposit(50));
-console.log(deposit(9.57));
-console.log(withdrawl(25));
-showHistory();
-showMenu();
-*/
